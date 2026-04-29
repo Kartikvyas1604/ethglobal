@@ -316,18 +316,12 @@ function AgentRow({ agent, delay }: { agent: Agent; delay: number }) {
       </span>
       <div className="min-w-0 flex-1">
         <div className="flex items-baseline justify-between gap-3">
-          <h3 className="truncate font-syne text-sm font-bold uppercase tracking-[0.16em] text-[#D8E2F0]">
-            {agent.ens}
-          </h3>
+          <h3 className="truncate font-syne text-sm font-bold text-[#D8E2F0]">{agent.ens}</h3>
           <TierBadge tier={agent.tone} />
         </div>
-        <p className="mt-1 font-geist-mono text-[11px] uppercase tracking-[0.2em] text-[#7A8FA8]">
-          {agent.role}
-        </p>
+        <p className="mt-1 font-geist-mono text-[11px] text-[#7A8FA8]">{agent.role}</p>
         <div className="mt-2 flex items-center justify-between gap-3">
-          <p className="font-geist-mono text-[10px] uppercase tracking-[0.22em] text-[#00E5C3]">
-            {agent.status}
-          </p>
+          <p className="font-geist-mono text-[11px] label-secondary text-[#00E5C3]">{agent.status}</p>
           <AgentBalance baseBalance={agent.balance} />
         </div>
       </div>
@@ -341,7 +335,7 @@ function ActivityRow({ activity, delay }: { activity: Activity; delay: number })
       className={`reveal-right rounded-[4px] border border-[#1E2C3D] bg-[#0F1318] px-3 py-3 ${activityStyles[activity.kind]}`}
       style={{ animationDelay: `${delay}ms` }}
     >
-      <div className="flex items-center justify-between gap-3 font-geist-mono text-[10px] uppercase tracking-[0.2em] text-[#7A8FA8]">
+      <div className="flex items-center justify-between gap-3 font-geist-mono label-secondary text-[#7A8FA8]">
         <span>{activity.stamp}</span>
         <span>{activity.label}</span>
       </div>
@@ -409,12 +403,8 @@ function LiveTerminal() {
       <div className="border-b border-[#1E2C3D] px-4 py-3">
         <div className="flex items-center justify-between gap-3">
           <div>
-            <p className="font-geist-mono text-[10px] uppercase tracking-[0.28em] text-[#7A8FA8]">
-              live activity terminal
-            </p>
-            <h2 className="mt-1 font-syne text-lg font-bold uppercase tracking-[0.12em] text-[#D8E2F0]">
-              Feed / actions / receipts
-            </h2>
+            <p className="label-secondary text-[#7A8FA8]">live activity terminal</p>
+            <h2 className="mt-1 font-syne text-lg font-bold text-[#D8E2F0]">Feed / actions / receipts</h2>
           </div>
           <div className="flex items-center gap-2 font-geist-mono text-[10px] uppercase tracking-[0.22em] text-[#00E5C3]">
             <span className="h-2 w-2 rounded-full bg-[#00E5C3]" />
@@ -483,19 +473,13 @@ function SkillTicker() {
     <section className="shell-panel mt-4 overflow-hidden rounded-[4px] terminal-shadow">
       <div className="flex items-center justify-between gap-4 border-b border-[#1E2C3D] px-4 py-3">
         <div>
-          <p className="font-geist-mono text-[10px] uppercase tracking-[0.28em] text-[#7A8FA8]">
-            skill evolution feed
-          </p>
-          <h2 className="mt-1 font-syne text-lg font-bold uppercase tracking-[0.12em] text-[#D8E2F0]">
-            live skill mint stream
-          </h2>
+          <p className="label-secondary text-[#7A8FA8]">skill evolution feed</p>
+          <h2 className="mt-1 font-syne text-lg font-bold text-[#D8E2F0]">live skill mint stream</h2>
         </div>
-        <p className="font-geist-mono text-[10px] uppercase tracking-[0.24em] text-[#E5A000]">
-          auto-listed by agents
-        </p>
+        <p className="label-secondary text-[#E5A000]">auto-listed by agents</p>
       </div>
       <div className="overflow-hidden py-3">
-        <div className="ticker-track flex gap-6 whitespace-nowrap font-geist-mono text-[11px] uppercase tracking-[0.2em] text-[#D8E2F0]">
+        <div className="ticker-track flex gap-6 whitespace-nowrap font-geist-mono text-sm tracking-[0.04em] text-[#D8E2F0]">
           {marquee}
         </div>
       </div>
@@ -524,29 +508,26 @@ export default function Home() {
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#090C10] text-[#D8E2F0]">
-      <div className="pointer-events-none absolute inset-0 dashboard-grid opacity-55" />
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_11%_8%,rgba(0,229,195,0.03),transparent_38%)]" />
+      <div className="pointer-events-none absolute inset-0 dashboard-grid opacity-40" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_11%_8%,rgba(0,229,195,0.028),transparent_38%)]" />
 
-      <div className="relative mx-auto flex min-h-screen w-full max-w-[1600px] flex-col px-4 py-4 md:px-6 lg:px-8">
-        <header className="shell-panel mb-4 rounded-[4px] px-4 py-3 terminal-shadow">
-          <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+      <div className="relative mx-auto flex min-h-screen w-full max-w-[1600px] flex-col px-4 py-6 md:px-6 lg:px-8">
+        <header className="shell-panel mb-4 rounded-[6px] px-6 py-4 terminal-shadow">
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
             <div className="flex items-center gap-4">
               <div>
-                <p className="font-geist-mono text-[10px] uppercase tracking-[0.32em] text-[#7A8FA8]">
-                  autonomous agent operating system
-                </p>
-                <h1 className="mt-1 font-syne text-2xl font-extrabold uppercase tracking-[0.12em] text-[#D8E2F0] md:text-3xl">
-                  AgentForge
-                  <span className="ml-3 text-[#00E5C3]">+</span>
-                  <span className="ml-3">AgentMarket</span>
+                <p className="label-secondary muted">autonomous agent operating system</p>
+                <h1 className="title-1 font-extrabold text-[#D8E2F0] md:text-4xl">
+                  AgentForge <span className="text-[#00E5C3]">+</span> AgentMarket
                 </h1>
               </div>
             </div>
 
-            <div className="flex flex-wrap items-center gap-3 lg:justify-end">
-              <div className="flex items-center gap-2 border border-[#1E2C3D] px-3 py-2 font-geist-mono text-[10px] uppercase tracking-[0.22em] text-[#00E5C3]">
-                <span className="heartbeat-dot h-2 w-2 rounded-full bg-[#00E5C3]" />
-                network live / 18 ms
+            <div className="flex flex-wrap items-center gap-4 lg:justify-end">
+              <div className="flex items-center gap-3 border border-[#1E2C3D] px-3 py-2 font-geist-mono label-secondary text-[#00E5C3]">
+                <span className="heartbeat-dot" />
+                <span className="label-secondary">network live</span>
+                <span className="muted">/ 18 ms</span>
               </div>
               <button
                 type="button"
@@ -558,7 +539,7 @@ export default function Home() {
           </div>
         </header>
 
-        <section className="mb-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+        <section className="mb-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
           {[
             ["settled volume", "$4.2M", "+12% / day"],
             ["active agents", "274", "42 on-chain"],
@@ -567,29 +548,83 @@ export default function Home() {
           ].map(([label, value, subtext], index) => (
             <article
               key={label}
-              className="shell-panel reveal-up rounded-[4px] px-4 py-3 terminal-shadow"
+              className="shell-panel reveal-up rounded-[6px] px-6 py-4 terminal-shadow"
               style={{ animationDelay: `${index * 60}ms` }}
             >
-              <p className="font-geist-mono text-[10px] uppercase tracking-[0.28em] text-[#7A8FA8]">
-                {label}
-              </p>
-              <div className="mt-2 flex items-baseline justify-between gap-3">
+              <p className="label-secondary">{label}</p>
+              <div className="mt-3 flex items-baseline justify-between gap-3">
                 <span className="font-geist-mono text-2xl font-semibold tabular-nums tracking-[0.02em] text-[#D8E2F0]">
                   {value}
                 </span>
-                <span className="font-geist-mono text-[10px] uppercase tracking-[0.22em] text-[#00E5C3]">
-                  {subtext}
-                </span>
-                    value={minPrice}
-                    onChange={(event) => setMinPrice(Number(event.target.value) || 0)}
-                    className="h-11 border border-[#1E2C3D] bg-[#090C10] px-3 font-geist-mono text-sm text-[#D8E2F0] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00E5C3] focus-visible:ring-offset-2 focus-visible:ring-offset-[#090C10]"
+                <span className="label-secondary text-[#00E5C3]">{subtext}</span>
+              </div>
+            </article>
+          ))}
+        </section>
+
+        <section className="grid flex-1 gap-6 lg:grid-cols-[240px_minmax(0,1fr)_320px]">
+          <aside className="shell-panel flex h-full min-h-[620px] flex-col rounded-[4px] terminal-shadow">
+            <div className="border-b border-[#1E2C3D] px-4 py-3">
+              <p className="font-geist-mono text-[10px] uppercase tracking-[0.28em] text-[#7A8FA8]">
+                agent roster
+              </p>
+              <h2 className="mt-1 font-syne text-lg font-bold uppercase tracking-[0.12em] text-[#D8E2F0]">
+                live operators
+              </h2>
+            </div>
+            <div className="flex-1 divide-y divide-[#1E2C3D] overflow-hidden">
+              {agents.map((agent, index) => (
+                <AgentRow
+                  key={agent.ens}
+                  agent={agent}
+                  delay={index * TIMING.roster}
+                />
+              ))}
+            </div>
+          </aside>
+
+          <section className="shell-panel flex min-h-[620px] flex-col rounded-[6px] terminal-shadow">
+            <div className="border-b border-[#1E2C3D] px-4 py-3">
+              <div className="flex flex-col gap-3 xl:flex-row xl:items-end xl:justify-between">
+                <div>
+                  <p className="font-geist-mono text-[10px] uppercase tracking-[0.28em] text-[#7A8FA8]">
+                    agentmarket gig grid
+                  </p>
+                  <h2 className="mt-1 font-syne text-xl font-bold uppercase tracking-[0.12em] text-[#D8E2F0]">
+                    hire from seller agents
+                  </h2>
+                </div>
+                <p className="font-geist-mono text-[10px] uppercase tracking-[0.24em] text-[#E5A000]">
+                  dense feed / sorted by live demand
+                </p>
+              </div>
+
+              <div className="mt-4 grid gap-3 xl:grid-cols-[1.2fr_140px_140px]">
+                <label className="grid gap-1">
+                  <span className="label-secondary text-[#7A8FA8]">search by ENS name</span>
+                  <input
+                    type="search"
+                    value={search}
+                    onChange={(event) => setSearch(event.target.value)}
+                    placeholder="routeforge.eth"
+                    className="h-12 border border-[#1E2C3D] bg-[#090C10] px-3 font-geist-mono text-sm text-[#D8E2F0] placeholder:text-[#3D4D60] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00E5C3] focus-visible:ring-offset-2 focus-visible:ring-offset-[#090C10]"
                   />
                 </label>
 
                 <label className="grid gap-1">
-                  <span className="font-geist-mono text-[10px] uppercase tracking-[0.24em] text-[#7A8FA8]">
-                    max usdc
-                  </span>
+                  <span className="label-secondary text-[#7A8FA8]">min USDC</span>
+                  <input
+                    type="number"
+                    min={0}
+                    step={1}
+                    value={minPrice}
+                    onChange={(event) => setMinPrice(Number(event.target.value) || 0)}
+                    className="h-12 border border-[#1E2C3D] bg-[#090C10] px-3 font-geist-mono text-sm text-[#D8E2F0] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00E5C3] focus-visible:ring-offset-2 focus-visible:ring-offset-[#090C10]"
+                  />
+                </label>
+
+                <label className="grid gap-1">
+                  <span className="label-secondary text-[#7A8FA8]">max USDC</span>
                   <input
                     type="number"
                     min={0}
@@ -601,10 +636,8 @@ export default function Home() {
                 </label>
               </div>
 
-              <div className="mt-3 flex flex-wrap gap-2">
-                <span className="font-geist-mono text-[10px] uppercase tracking-[0.24em] text-[#7A8FA8]">
-                  tier filter
-                </span>
+              <div className="mt-3 flex flex-wrap gap-3">
+                <span className="label-secondary text-[#7A8FA8]">tier filter</span>
                 {(["All", ...tierOrder] as const).map((tier) => {
                   const selected = tierFilter === tier;
 
@@ -613,7 +646,7 @@ export default function Home() {
                       key={tier}
                       type="button"
                       onClick={() => setTierFilter(tier)}
-                      className={`min-h-10 border px-3 py-2 font-geist-mono text-[10px] uppercase tracking-[0.22em] transition-colors duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00E5C3] focus-visible:ring-offset-2 focus-visible:ring-offset-[#090C10] ${
+                      className={`min-h-10 border px-3 py-2 font-geist-mono text-[11px] transition-colors duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00E5C3] focus-visible:ring-offset-2 focus-visible:ring-offset-[#090C10] ${
                         selected
                           ? "border-[#00E5C3] bg-[#00E5C3] text-[#090C10]"
                           : "border-[#1E2C3D] text-[#7A8FA8] hover:border-[#3D4D60] hover:text-[#D8E2F0]"
@@ -626,19 +659,19 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="flex-1 p-3">
+            <div className="flex-1 p-4">
               {visibleGigs.length > 0 ? (
-                <div className="grid gap-3 xl:grid-cols-2 2xl:grid-cols-3">
+                <div className="grid gap-4 xl:grid-cols-2 2xl:grid-cols-3">
                   {visibleGigs.map((gig, index) => (
                     <article
                       key={gig.id}
-                      className="reveal-up shell-panel-strong flex flex-col rounded-[4px] p-4 terminal-shadow"
+                      className="reveal-up shell-panel-strong flex flex-col rounded-[6px] p-6 terminal-shadow"
                       style={{ animationDelay: `${index * TIMING.market}ms` }}
                     >
                       <div className="flex items-start justify-between gap-4">
                         <div>
                           <TierBadge tier={gig.tier} />
-                          <h3 className="mt-3 font-syne text-lg font-bold uppercase tracking-[0.12em] text-[#D8E2F0]">
+                          <h3 className="mt-3 font-syne text-xl font-bold text-[#D8E2F0]">
                             {gig.skill}
                           </h3>
                         </div>
@@ -652,21 +685,22 @@ export default function Home() {
                         </div>
                       </div>
 
-                      <p className="mt-3 min-h-10 text-sm leading-6 text-[#7A8FA8]">
-                        {gig.summary}
-                      </p>
+                      <div className="card-body">
+                        <p className="mt-3 min-h-12 text-sm leading-7 text-[#7A8FA8]">
+                          {gig.summary}
+                        </p>
+                      </div>
 
                       <div className="mt-4 flex items-center justify-between gap-3 border-t border-[#1E2C3D] pt-3 font-geist-mono text-[10px] uppercase tracking-[0.22em] text-[#7A8FA8]">
                         <span>{gig.agent}</span>
                         <span>{gig.eta}</span>
                       </div>
 
-                      <button
-                        type="button"
-                        className="mt-4 min-h-11 border-2 border-[#00E5C3] bg-[#00E5C3] px-4 py-2 text-center font-geist-mono text-[10px] font-semibold uppercase tracking-[0.24em] text-[#090C10] transition-colors duration-100 hover:bg-transparent hover:text-[#00E5C3] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00E5C3] focus-visible:ring-offset-2 focus-visible:ring-offset-[#141920]"
-                      >
-                        HIRE VIA X402
-                      </button>
+                      <div className="mt-4">
+                        <button type="button" className="btn-primary">
+                          HIRE VIA X402
+                        </button>
+                      </div>
                     </article>
                   ))}
                 </div>
@@ -709,16 +743,3 @@ export default function Home() {
     </main>
   );
 }
-
-export default function Home() {
-  return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
