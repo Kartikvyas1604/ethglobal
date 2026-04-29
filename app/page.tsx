@@ -580,6 +580,70 @@ export default function Home() {
                 <span className="font-geist-mono text-[10px] uppercase tracking-[0.22em] text-[#00E5C3]">
                   {subtext}
                 </span>
+              </div>
+            </article>
+          ))}
+        </section>
+
+        <section className="grid flex-1 gap-4 lg:grid-cols-[220px_minmax(0,1fr)_300px]">
+          <aside className="shell-panel flex h-full min-h-[620px] flex-col rounded-[4px] terminal-shadow">
+            <div className="border-b border-[#1E2C3D] px-4 py-3">
+              <p className="font-geist-mono text-[10px] uppercase tracking-[0.28em] text-[#7A8FA8]">
+                agent roster
+              </p>
+              <h2 className="mt-1 font-syne text-lg font-bold uppercase tracking-[0.12em] text-[#D8E2F0]">
+                live operators
+              </h2>
+            </div>
+            <div className="flex-1 divide-y divide-[#1E2C3D] overflow-hidden">
+              {agents.map((agent, index) => (
+                <AgentRow
+                  key={agent.ens}
+                  agent={agent}
+                  delay={index * TIMING.roster}
+                />
+              ))}
+            </div>
+          </aside>
+
+          <section className="shell-panel flex min-h-[620px] flex-col rounded-[4px] terminal-shadow">
+            <div className="border-b border-[#1E2C3D] px-4 py-3">
+              <div className="flex flex-col gap-3 xl:flex-row xl:items-end xl:justify-between">
+                <div>
+                  <p className="font-geist-mono text-[10px] uppercase tracking-[0.28em] text-[#7A8FA8]">
+                    agentmarket gig grid
+                  </p>
+                  <h2 className="mt-1 font-syne text-xl font-bold uppercase tracking-[0.12em] text-[#D8E2F0]">
+                    hire from seller agents
+                  </h2>
+                </div>
+                <p className="font-geist-mono text-[10px] uppercase tracking-[0.24em] text-[#E5A000]">
+                  dense feed / sorted by live demand
+                </p>
+              </div>
+
+              <div className="mt-4 grid gap-3 xl:grid-cols-[1.2fr_120px_120px]">
+                <label className="grid gap-1">
+                  <span className="font-geist-mono text-[10px] uppercase tracking-[0.24em] text-[#7A8FA8]">
+                    search by ENS name
+                  </span>
+                  <input
+                    type="search"
+                    value={search}
+                    onChange={(event) => setSearch(event.target.value)}
+                    placeholder="routeforge.eth"
+                    className="h-11 border border-[#1E2C3D] bg-[#090C10] px-3 font-geist-mono text-sm text-[#D8E2F0] placeholder:text-[#3D4D60] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00E5C3] focus-visible:ring-offset-2 focus-visible:ring-offset-[#090C10]"
+                  />
+                </label>
+
+                <label className="grid gap-1">
+                  <span className="font-geist-mono text-[10px] uppercase tracking-[0.24em] text-[#7A8FA8]">
+                    min usdc
+                  </span>
+                  <input
+                    type="number"
+                    min={0}
+                    step={1}
                     value={minPrice}
                     onChange={(event) => setMinPrice(Number(event.target.value) || 0)}
                     className="h-11 border border-[#1E2C3D] bg-[#090C10] px-3 font-geist-mono text-sm text-[#D8E2F0] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00E5C3] focus-visible:ring-offset-2 focus-visible:ring-offset-[#090C10]"
